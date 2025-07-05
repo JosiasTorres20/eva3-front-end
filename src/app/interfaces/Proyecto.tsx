@@ -1,7 +1,7 @@
 export interface Proyecto{
-    nombre: String;
+    nombre: string;
     presupuesto: number;
-    tipo: String;
-    objetivo: String;
-    fecha: String;
+    tipo: string;
+    objetivo: string;
+    fecha: string;
 }

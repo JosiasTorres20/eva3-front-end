@@ -8,7 +8,10 @@ export default function Formulario(props: {
 }) {
     const { proyecto, handleProyecto, handleRegistrar, enEdicion} = props
 
-    
+    const registro = () => {
+        handleRegistrar()
+    }
+
     return (
         <form>
             <h1>{enEdicion ? "Editar" : "Crear"}</h1>
@@ -76,7 +79,7 @@ export default function Formulario(props: {
                 )}
             />
 
-            <button onClick={}>
+            <button onClick={registro}>
                 {enEdicion ? "Actualizar" : "Crear"}
             </button>
 
