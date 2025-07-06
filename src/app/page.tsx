@@ -23,12 +23,18 @@ export default function Principal(){
     setProyecto({ ...proyecto, [ name]: value});
   }
 
+  const guardarProyecto = () => {
+    const nuevos = [...proyectos, proyecto]
+    setProyectos(nuevos)
+    setProyecto(initialStateProyecto)
+  }
+
   return (
     <main>
-      <Formulario
+      <Formulario 
         proyecto={proyecto}
         handleProyecto={handleProyecto}
-        handleRegistrar={() => {}}
+        handleRegistrar={guardarProyecto}
         enEdicion={false}
       />
 
