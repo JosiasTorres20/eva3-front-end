@@ -29,6 +29,11 @@ export default function Principal(){
     setProyecto(initialStateProyecto)
   }
 
+  const eliminarProyecto = (index:number) => {
+    const nuevaLista = proyectos.filter((_, i) => i !== index)
+    setProyectos(nuevaLista) 
+  }
+
   return (
     <main>
       <Formulario 
@@ -41,7 +46,7 @@ export default function Principal(){
       <Tabla
         proyectos={proyectos}
         getProyecto={() =>{}}
-        eliminarProyecto={() => {}}
+        eliminarProyecto={eliminarProyecto}
       />
     </main>
   )
