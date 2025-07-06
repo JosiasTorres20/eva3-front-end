@@ -17,6 +17,8 @@ export default function Principal(){
 
   const [proyecto, setProyecto] = useState<Proyecto>(initialStateProyecto);
   const [proyectos, setProyectos]= useState<Proyecto[]>([]);
+  const [enEdicion, setEnEdicion] = useState<boolean>(false);
+  const [indiceEditar, setIndiceEditar] = useState<number | null>(null);
 
 
   const handleProyecto = (name: string, value: string) => {
@@ -24,9 +26,18 @@ export default function Principal(){
   }
 
   const guardarProyecto = () => {
-    const nuevos = [...proyectos, proyecto]
-    setProyectos(nuevos)
-    setProyecto(initialStateProyecto)
+    const nuevos = [...proyectos];
+
+    if (enEdicion && indiceEditar !== null) {
+      nuevos[indiceEditar] = proyecto;
+    }else{
+      nuevos.push(proyecto);
+    }
+
+    setProyectos(nuevos);
+    setProyecto(initialStateProyecto);
+    setEnEdicion(false);
+    setIndiceEditar(null);
   }
 
   const eliminarProyecto = (index:number) => {
