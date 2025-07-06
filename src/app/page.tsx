@@ -47,13 +47,13 @@ export default function Principal(){
     }else{
       nuevos.push(proyecto);
     }
-
+    localStorage.setItem("proyectos" , JSON.stringify(nuevos));
     setProyectos(nuevos);
     setProyecto(initialStateProyecto);
     setEnEdicion(false);
     setIndiceEditar(null);
   }
-  
+
   const eliminarProyecto = (index:number) => {
     const nuevaLista = proyectos.filter((_, i) => i !== index)
     setProyectos(nuevaLista) 
