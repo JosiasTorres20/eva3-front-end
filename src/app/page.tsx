@@ -21,6 +21,14 @@ export default function Principal(){
   const [indiceEditar, setIndiceEditar] = useState<number | null>(null);
 
 
+  useEffect(() => {
+    const buscaProyectos = localStorage.getItem("proyectos");
+    if (buscaProyectos !== null) {
+      const proyectosEncotrados = JSON.parse(buscaProyectos);
+      setProyectos(proyectosEncotrados);
+    }
+  }, [])
+
   const handleProyecto = (name: string, value: string) => {
     setProyecto({ ...proyecto, [ name]: value});
   }
@@ -45,12 +53,12 @@ export default function Principal(){
     setEnEdicion(false);
     setIndiceEditar(null);
   }
+  
   const eliminarProyecto = (index:number) => {
     const nuevaLista = proyectos.filter((_, i) => i !== index)
     setProyectos(nuevaLista) 
   }
 
-  
   return (
     <main>
       <Formulario 
