@@ -57,6 +57,7 @@ export default function Principal(){
   const eliminarProyecto = (index:number) => {
     const nuevaLista = proyectos.filter((_, i) => i !== index)
     setProyectos(nuevaLista) 
+    localStorage.setItem("proyectos" , JSON.stringify(nuevaLista));
   }
 
   return (
