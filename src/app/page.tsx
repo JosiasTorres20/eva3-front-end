@@ -24,6 +24,12 @@ export default function Principal(){
   const handleProyecto = (name: string, value: string) => {
     setProyecto({ ...proyecto, [ name]: value});
   }
+  const getProyecto = (proyectoSeleccionado: Proyecto, index:number) => {
+    setProyecto(proyectoSeleccionado);
+    setIndiceEditar(index);
+    setEnEdicion(true);
+  }
+
 
   const guardarProyecto = () => {
     const nuevos = [...proyectos];
@@ -39,24 +45,24 @@ export default function Principal(){
     setEnEdicion(false);
     setIndiceEditar(null);
   }
-
   const eliminarProyecto = (index:number) => {
     const nuevaLista = proyectos.filter((_, i) => i !== index)
     setProyectos(nuevaLista) 
   }
 
+  
   return (
     <main>
       <Formulario 
         proyecto={proyecto}
         handleProyecto={handleProyecto}
         handleRegistrar={guardarProyecto}
-        enEdicion={false}
+        enEdicion={enEdicion}
       />
 
       <Tabla
         proyectos={proyectos}
-        getProyecto={() =>{}}
+        getProyecto={getProyecto}
         eliminarProyecto={eliminarProyecto}
       />
     </main>
