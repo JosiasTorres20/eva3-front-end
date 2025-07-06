@@ -1,3 +1,4 @@
+'use client'
 import { useState, useEffect } from "react";
 import {Proyecto} from "./interfaces/Proyecto"
 import Formulario from "./components/Formulario";
