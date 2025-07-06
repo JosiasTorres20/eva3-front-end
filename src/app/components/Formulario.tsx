@@ -80,7 +80,7 @@ export default function Formulario(props: {
                 )}
             />
 
-            <button onClick={registro}>
+            <button type="button" onClick={registro}>
                 {enEdicion ? "Actualizar" : "Crear"}
             </button>
 
