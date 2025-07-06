@@ -40,6 +40,31 @@ export default function Principal(){
 
 
   const guardarProyecto = () => {
+
+    if(proyecto.nombre.trim() === ""){
+      alert("Porfavor Ingrese un Nombre para su Proyecto");
+      return;
+    }
+
+    if (proyecto.presupuesto <= 0){
+      alert("Ingrese el Presupuesto para su Proyecto");
+      return;
+    }
+
+    if (proyecto.tipo.trim() === ""){
+      alert("Ingrese el Tipo de Proyecto")
+      return;
+    }
+    if ( proyecto.objetivo.length < 10){
+      alert("Ingrese un Objetivo para su Proyecto con mas de 10 Caracteres")
+      return;
+    }
+
+    if ( proyecto.fecha.trim() === ""){
+      alert("Ingrese un Objetivo para su Proyecto con mas de 10 Caracteres")
+      return;
+    }
+
     const nuevos = [...proyectos];
 
     if (enEdicion && indiceEditar !== null) {
