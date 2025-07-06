@@ -19,11 +19,15 @@ export default function Principal(){
   const [proyectos, setProyectos]= useState<Proyecto[]>([]);
 
 
+  const handleProyecto = (name: string, value: string) => {
+    setProyecto({ ...proyecto, [ name]: value});
+  }
+
   return (
     <main>
       <Formulario
-        proyecto={initialStateProyecto}
-        handleProyecto={() => {}}
+        proyecto={proyecto}
+        handleProyecto={handleProyecto}
         handleRegistrar={() => {}}
         enEdicion={false}
       />
