@@ -10,7 +10,7 @@ export default function Lista(props: {
 
 
     return (
-        <div>
+        <div style={{ padding: 50, gap: 15, display:"flex", flexDirection:"column"}}>
             <h1>Lista de Proyecto</h1>
 
             <table>

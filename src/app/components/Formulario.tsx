@@ -13,7 +13,8 @@ export default function Formulario(props: {
     }
 
     return (
-        <form>
+        <form style={{ padding: 50, gap: 15, display:"flex", flexDirection:"column"}}>
+            
             <h1>{enEdicion ? "Editar" : "Crear"}</h1>
 
             <label>Nombre</label>
