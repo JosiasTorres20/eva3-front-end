@@ -20,12 +20,17 @@ export default function Formulario(props: {
             <label>Nombre</label>
             <input
                 name = "nombre"
+                type="text"
                 placeholder="Nombre del Proyecto"
                 value={proyecto.nombre}
-                onChange = {(e) =>  handleProyecto(
-                    e.currentTarget.name, 
-                    e.currentTarget.value
-                )}
+                onChange = {(e) => {
+                    const valor = e.target.value;
+                    const soloLetras = valor.replace(/[^a-zA-Z\s]/g, "");
+                    handleProyecto(e.target.name, soloLetras);
+                }
+                }
+
+
             />
 
             <label>Presupuesto</label>
