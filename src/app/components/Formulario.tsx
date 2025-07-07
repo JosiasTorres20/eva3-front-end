@@ -31,6 +31,7 @@ export default function Formulario(props: {
             <label>Presupuesto</label>
             <input
                 name = "presupuesto"
+                type="number"
                 placeholder="Presupuesto del Proyecto"
                 value={proyecto.presupuesto}
                 onChange = {(e) =>  handleProyecto(
@@ -66,6 +67,7 @@ export default function Formulario(props: {
                     e.currentTarget.value
                 )}
             
+                )}   
             >
             </textarea>
 
