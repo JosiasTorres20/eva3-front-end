@@ -10,12 +10,12 @@ export default function Lista(props: {
 
 
     return (
-        <div style={{ padding: 50, gap: 15, display:"flex", flexDirection:"column"}}>
+        <div style={{ padding: 50, gap: 15, display:"flex", flexDirection:"column", textAlign:"center"}}>
             <h1>Lista de Proyecto</h1>
 
-            <table>
+            <table style={{ borderCollapse: "collapse"}} border={1}>
                 <thead>
-                    <tr>
+                    <tr >
                         <th>Nombre</th>
                         <th>Presupuesto</th>
                         <th>Tipo de Proyecto</th>
@@ -27,7 +27,7 @@ export default function Lista(props: {
 
                 <tbody>
                     {proyectos.map((proyecto, index) => (
-                        <tr>
+                        <tr style={{whiteSpace: "pre-wrap", wordBreak: "break-word"}}>
                             <td>{proyecto.nombre}</td>
                             <td>{proyecto.presupuesto}</td>
                             <td>{proyecto.tipo}</td>

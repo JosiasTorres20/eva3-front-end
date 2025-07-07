@@ -65,8 +65,6 @@ export default function Formulario(props: {
                 onChange = {(e) =>  handleProyecto(
                     e.currentTarget.name, 
                     e.currentTarget.value
-                )}
-            
                 )}   
             >
             </textarea>
