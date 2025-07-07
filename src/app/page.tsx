@@ -61,7 +61,7 @@ export default function Principal(){
     }
 
     if ( proyecto.fecha.trim() === ""){
-      alert("Ingrese un Objetivo para su Proyecto con mas de 10 Caracteres")
+      alert("Ingrese un Fecha para su Proyecto")
       return;
     }
 
