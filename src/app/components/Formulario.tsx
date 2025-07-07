@@ -49,9 +49,10 @@ export default function Formulario(props: {
                     e.currentTarget.name, 
                     e.currentTarget.value
                 )}
+                
             >
-                <option>Elije un Tipo</option>
-                <option value= "Educacion" >Educacion</option>
+                <option hidden>Elije un Tipo</option>
+                <option value= "Educacion">Educacion</option>
                 <option value= "Salud" >Salud</option>
                 <option value= "Contruccion" >Contruccion</option>
             </select>
