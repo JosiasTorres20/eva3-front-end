@@ -7,7 +7,22 @@ import {Proyecto} from "../interfaces/Proyecto";
 export const crearProyecto = async (proyecto:Proyecto): Promise<string> => {
     try{
         const nuevoDocumento = await addDoc(collection(db, "proyectos"), proyecto);
-        return nuevoDocumento.id
+        const idGenerado = nuevoDocumento.id
+        
+        const proyectos = JSON.parse(localStorage.getItem("proyectos") || "[]");
+        const proyectosActualizados = proyectos.map((p: Proyecto) => {
+            const esIgual = !p.id &&
+                p.nombre === proyecto.nombre &&
+                p.presupuesto === proyecto.presupuesto &&
+                p.tipo === proyecto.tipo &&
+                p.objetivo === proyecto.objetivo &&
+                p.fecha === proyecto.fecha;
+
+            return esIgual ? { ...p, id: idGenerado } : p;
+        });
+        localStorage.setItem("proyectos", JSON.stringify(proyectosActualizados));
+
+        return idGenerado;
     }catch (error){
         throw error;
     }
