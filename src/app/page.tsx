@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import {Proyecto} from "./interfaces/Proyecto"
 import Formulario from "./components/Formulario";
 import Tabla from "./components/Tabla";
-
+import { revisarYSincronizar } from "./utils/revision";
 
 const initialStateProyecto: Proyecto = {
   nombre: '',
@@ -28,6 +28,13 @@ export default function Principal(){
       setProyectos(proyectosEncotrados);
     }
   }, [])
+
+  useEffect(() => {
+    if (navigator.onLine) {
+      revisarYSincronizar();
+    }
+  }, [proyectos]);
+
 
   const handleProyecto = (name: string, value: string) => {
     setProyecto({ ...proyecto, [ name]: value});
